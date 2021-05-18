@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Wish</title>
+  <meta name="description" content="Wish">
+  <meta name="viewport" content="width=device-width">
+  <script src="https://kit.fontawesome.com/3c6685a8ee.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/libraries/slick.css">
+  <link rel="stylesheet" href="css/libraries/slick-theme.css">
+  <link rel="stylesheet" href="css/app.min.css">
+</head>
+
+<body>
+
+  <!-- POPUPS -->
+
+  <div class="bgoverlay" id="bgoverlay"></div>
+
+  <div class="popup order">
+    <div class="popup-wrapper">
+      <div class="popup-box">
+        <div class="order-title">Заказать</div>
+        <div class="order-main">
+          <form action="get">
+            <label class="form-label" for="full-name">ФИО<span>*</span></label>
+            <input class="form-input" type="text" id="full-name" required>
+            <label class="form-label" for="phone-number">Телефон<span>*</span></label>
+            <input class="form-input" type="tel" id="phone-number" placeholder="+7" required>
+            <input class="form-submit" type="submit" value="Оформить заказ">
+          </form>
+        </div>
+        <div class="popup-cross" id="popup-close"><i class="fas fa-times"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup oneclick-order">
+    <div class="popup-wrapper">
+      <div class="popup-box">
+        <div class="order-title">Заказать эту коляску в один клик</div>
+        <div class="order-main">
+          <form action="get">
+            <div class="color-pick">
+              <div class="title">Выбрать цвет</div>
+              <div class="items">
+                <div class="item">
+                  <img src="img/color-pick-2.png">
+                </div>
+                <div class="item">
+                  <img src="img/color-pick-2.png">
+                </div>
+                <div class="item">
+                  <img src="img/color-pick-2.png">
+                </div>
+                <div class="item">
+                  <img src="img/color-pick-2.png">
+                </div>
+                <div class="item active">
+                  <img src="img/color-pick-1.png">
+                </div>
+                <div class="item">
+                  <img src="img/color-pick-2.png">
+                </div>
+              </div>
+            </div>
+            <label class="form-label" for="full-name-1">ФИО<span>*</span></label>
+            <input class="form-input" type="text" id="full-name-1" required>
+            <label class="form-label" for="phone-number-1">Телефон<span>*</span></label>
+            <input class="form-input" type="tel" id="phone-number-1" placeholder="+7" required>
+            <input class="form-submit" type="submit" value="Оформить заказ">
+          </form>
+        </div>
+        <div class="popup-cross" id="popup-close-order"><i class="fas fa-times"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup ask-question">
+    <div class="popup-wrapper">
+      <div class="popup-box">
+        <div class="question-floater">?</div>
+        <div class="order-title">Задайте любой ваш вопрос<br><span>Мы ответим в течение 15 минут</span></div>
+        <div class="order-main">
+          <form action="get">
+            <textarea class="form-textarea" placeholder="Вопрос.." required></textarea>
+            <label class="form-label" for="full-name-2">Имя*<span>*</span></label>
+            <input class="form-input" type="text" id="full-name-2">
+            <label class="form-label" for="phone-number-2">Телефон<span>*</span></label>
+            <input class="form-input" type="tel" id="phone-number-2" placeholder="+7" required>
+            <label class="form-label" for="email">Email</label>
+            <input class="form-input" type="email" id="email">
+            <input class="form-submit" type="submit" value="Оформить заказ">
+          </form>
+        </div>
+        <div class="popup-cross" id="popup-close-question"><i class="fas fa-times"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup empty-cart">
+    <div class="popup-wrapper">
+      <div class="popup-box">
+        <div class="order-title">Ваша корзина пуста</div>
+        <div class="order-main">
+          <img src="img/empty-cart.svg">
+          <div class="text">Я чувствую себя опустошенной!</div>
+          <button class="goto-catalog" id="clos-empty-cart">Перейти в каталог</button>
+        </div>
+        <div class="popup-cross" id="popup-close-empty-cart"><i class="fas fa-times"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup recall">
+    <div class="popup-wrapper">
+      <div class="popup-box">
+        <div class="order-title">Оставьте заявку<br><span>Мы перезвоним вам в течение 15 минут</span></div>
+        <div class="order-main">
+          <form action="get">
+            <label class="form-label" for="full-name-recall">Имя<span>*</span></label>
+            <input class="form-input" type="text" id="full-name-recall" placeholder="Анастасия" required>
+            <label class="form-label" for="phone-number-recall">Телефон<span>*</span></label>
+            <input class="form-input" type="tel" id="phone-number-recall" placeholder="+7" required>
+            <input class="form-submit" type="submit" value="Оформить заказ">
+          </form>
+        </div>
+        <div class="popup-cross" id="popup-close-recall"><i class="fas fa-times"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup cart-items">
+    <div class="popup-wrapper">
+      <div class="popup-box">
+        <div class="order-title">Товары в корзине <span>(5)</span></div>
+        <div class="order-main">
+          <div class="items-scroll" id="cart-items-scroll">
+
+            <div class="item">
+              <div class="image"><img src="img/cart-delivery-checkout-1.png"></div>
+              <div class="info">
+                <div class="title">Коляска трансформер Барс 3102<br><span>Голубой</span></div>
+                <div class="values">
+                  <div class="item-count">
+                    <i class="fas fa-minus"></i>
+                    <input class="value" value="1">
+                    <i class="fas fa-plus"></i>
+                  </div>
+                  <div class="prices">
+                    <div class="old-price">19 280 ₽</div>
+                    <div class="new-price">9 280 ₽</div>
+                  </div>
+                  <i class="fas fa-trash-alt remove"></i>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="image"><img src="img/cart-delivery-checkout-1.png"></div>
+              <div class="info">
+                <div class="title">Коляска трансформер Барс 3102<br><span>Голубой</span></div>
+                <div class="values">
+                  <div class="item-count">
+                    <i class="fas fa-minus"></i>
+                    <input class="value" value="1">
+                    <i class="fas fa-plus"></i>
+                  </div>
+                  <div class="prices">
+                    <div class="old-price">19 280 ₽</div>
+                    <div class="new-price">9 280 ₽</div>
+                  </div>
+                  <i class="fas fa-trash-alt remove"></i>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="image"><img src="img/cart-delivery-checkout-1.png"></div>
+              <div class="info">
+                <div class="title">Коляска трансформер Барс 3102<br><span>Голубой</span></div>
+                <div class="values">
+                  <div class="item-count">
+                    <i class="fas fa-minus"></i>
+                    <input class="value" value="1">
+                    <i class="fas fa-plus"></i>
+                  </div>
+                  <div class="prices">
+                    <div class="old-price">19 280 ₽</div>
+                    <div class="new-price">9 280 ₽</div>
+                  </div>
+                  <i class="fas fa-trash-alt remove"></i>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="image"><img src="img/cart-delivery-checkout-1.png"></div>
+              <div class="info">
+                <div class="title">Коляска трансформер Барс 3102<br><span>Голубой</span></div>
+                <div class="values">
+                  <div class="item-count">
+                    <i class="fas fa-minus"></i>
+                    <input class="value" value="1">
+                    <i class="fas fa-plus"></i>
+                  </div>
+                  <div class="prices">
+                    <div class="old-price">19 280 ₽</div>
+                    <div class="new-price">9 280 ₽</div>
+                  </div>
+                  <i class="fas fa-trash-alt remove"></i>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="image"><img src="img/cart-delivery-checkout-1.png"></div>
+              <div class="info">
+                <div class="title">Коляска трансформер Барс 3102<br><span>Голубой</span></div>
+                <div class="values">
+                  <div class="item-count">
+                    <i class="fas fa-minus"></i>
+                    <input class="value" value="1">
+                    <i class="fas fa-plus"></i>
+                  </div>
+                  <div class="prices">
+                    <div class="old-price">19 280 ₽</div>
+                    <div class="new-price">9 280 ₽</div>
+                  </div>
+                  <i class="fas fa-trash-alt remove"></i>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="image"><img src="img/cart-delivery-checkout-1.png"></div>
+              <div class="info">
+                <div class="title">Коляска трансформер Барс 3102<br><span>Голубой</span></div>
+                <div class="values">
+                  <div class="item-count">
+                    <i class="fas fa-minus"></i>
+                    <input class="value" value="1">
+                    <i class="fas fa-plus"></i>
+                  </div>
+                  <div class="prices">
+                    <div class="old-price">19 280 ₽</div>
+                    <div class="new-price">9 280 ₽</div>
+                  </div>
+                  <i class="fas fa-trash-alt remove"></i>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="checkout-delivery">
+            <div class="choose-option">
+              <div class="delivery active">Доставка</div>
+              <div class="self-delivery">Самовывоз</div>
+            </div>
+            <div class="items">Товары (5)</div>
+            <div class="total-sum">
+              <div class="text">Итого</div>
+              <div class="sum"><span>38 560 </span>18 560</div>
+            </div>
+            <div class="order-delivery-btn">Оформить доставку</div>
+            <div class="delivery-price">Стоимость доставки уточняйте у менеджера</div>
+          </div>
+        </div>
+        <button class="goto-catalog" id="btn-close-cart-items">Перейти в каталог</button>
+        <div class="popup-cross" id="popup-close-cart-items"><i class="fas fa-times"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup order-delivery-info">
+    <div class="popup-wrapper">
+      <div class="popup-box">
+        <div class="order-title">Оформление заказа</div>
+        <div class="order-main">
+          <form action="get">
+            <div class="order-delivery-info-container">
+              <div class="order-delivery-info-container-item">
+                <div class="form-inputbox">
+                  <div class="title">Получатель</div>
+                  <input class="form-input" type="text" id="name-surname" placeholder="Имя и фамилия" required>
+                  <input class="form-input" type="email" id="email-inputbox" placeholder="Почта" required>
+                  <input class="form-input" type="tel" id="phone-inputbox" placeholder="Телефон" required>
+                  <input class="form-input" type="text" id="comment-inputbox" placeholder="Комментарий к доставке..">
+                </div>
+                <div class="form-inputbox">
+                  <div class="title">Адрес доставки</div>
+                  <input class="form-input" type="text" id="town-inputbox" placeholder="Город" required>
+                  <input class="form-input" type="text" id="street-inputbox" placeholder="Улица и дом" required>
+                  <div class="form-inputbox-subbox">
+                    <input class="form-input" type="text" id="floor-inputbox" placeholder="Этаж">
+                    <input class="form-input" type="text" id="appartment-inputbox" placeholder="Кв. или офис">
+                    <input class="form-input" type="text" id="house-inputbox" placeholder="Подъезд">
+                  </div>
+                </div>
+                <div class="form-items">
+                  <div class="title">Доставка</div>
+                  <div class="quantity">4 товара</div>
+                  <div class="items-box">
+                    <div class="item">
+                      <img src="img/form-inputbox-1.png">
+                      <div class="item-quantity">1</div>
+                    </div>
+                    <div class="item">
+                      <img src="img/form-inputbox-2.png">
+                      <div class="item-quantity">1</div>
+                    </div>
+                    <div class="item">
+                      <img src="img/form-inputbox-2.png">
+                      <div class="item-quantity">2</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="order-delivery-info-container-item">
+                <div class="checkout-box">
+                  <div class="title">Ваш заказ</div>
+                  <div class="quantity">Товары (2)</div>
+                  <div class="delivery">
+                    <div class="title">Доставка</div>
+                    <div class="sum">₽</div>
+                  </div>
+                  <div class="price">
+                    <div class="title">Итого</div>
+                    <div class="num">18 560</div>
+                  </div>
+                  <input class="form-submit" type="submit" value="Оформить заказ">
+                  <div class="politics">Оформляя заказ, вы соглашаетесь с условиями <u>политики конфиденциальности</u>
+                  </div>
+                </div>
+                <div class="payment-methods">
+                  <div class="title">Способ оплаты</div>
+                  <div class="methods">
+                    <div class="methods-item active">
+                      <img src="images/master.png">
+                      <img src="images/visa.png">
+                      <img src="images/mir.png">
+                    </div>
+                    <div class="methods-item">При получении</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="popup-cross" id="popup-order-delivery-info-close"><i class="fas fa-times"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup order-selfdelivery-info">
+    <div class="popup-wrapper">
+      <div class="popup-box">
+        <div class="order-title">Оформление заказа</div>
+        <div class="order-main">
+          <form action="get">
+            <div class="order-selfdelivery-info-container">
+              <div class="order-selfdelivery-info-container-item">
+                <div class="form-inputbox">
+                  <div class="title">Получатель</div>
+                  <input class="form-input" type="text" id="name-surname" placeholder="Имя и фамилия" required>
+                  <input class="form-input" type="email" id="email-inputbox" placeholder="Почта" required>
+                  <input class="form-input" type="tel" id="phone-inputbox" placeholder="Телефон" required>
+                  <input class="form-input" type="text" id="comment-inputbox" placeholder="Комментарий к самовывозу..">
+                </div>
+                <div class="form-items">
+                  <div class="title">Самовывоз</div>
+                  <div class="sms-wait">Ожидайте SMS о готовности вашего товара</div>
+                  <div class="quantity">4 товара</div>
+                  <div class="items-box">
+                    <div class="item">
+                      <img src="img/form-inputbox-1.png">
+                      <div class="item-quantity">1</div>
+                    </div>
+                    <div class="item">
+                      <img src="img/form-inputbox-2.png">
+                      <div class="item-quantity">1</div>
+                    </div>
+                    <div class="item">
+                      <img src="img/form-inputbox-2.png">
+                      <div class="item-quantity">2</div>
+                    </div>
+                  </div>
+                  <div class="selfdelivery-place-title">Список пунктов</div>
+                  <div class="selfdelivery-place">Г. Москва М. Котельники Новорязанская 1 Б <span>бесплатно</span></div>
+                </div>
+              </div>
+              <div class="order-selfdelivery-info-container-item">
+                <div class="checkout-box">
+                  <div class="title">Ваш заказ</div>
+                  <div class="quantity">Товары (2)</div>
+                  <div class="delivery">
+                    <div class="title">Самовывоз</div>
+                    <div class="sum">Бесплатно</div>
+                  </div>
+                  <div class="price">
+                    <div class="title">Итого</div>
+                    <div class="num">18 560</div>
+                  </div>
+                  <input class="form-submit" type="submit" value="Перейти к оплате">
+                  <div class="politics">Оформляя заказ, вы соглашаетесь с условиями <u>политики конфиденциальности</u>
+                  </div>
+                </div>
+                <div class="payment-methods">
+                  <div class="title">Способ оплаты</div>
+                  <div class="methods">
+                    <div class="methods-item active">
+                      <img src="images/master.png">
+                      <img src="images/visa.png">
+                      <img src="images/mir.png">
+                    </div>
+                    <div class="methods-item">При получении</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="popup-cross" id="popup-order-selfdelivery-info-close"><i class="fas fa-times"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <!---------------------------------------- POPUPS END ---------------------------------------->
+
+  <header>
+    <div class="container">
+      <div class="header-info" id="header-menu-info">
+        <div class="logo"><img src="img/logo.png" alt="Logo"></div>
+        <div class="adress">
+          <img src="img/adress.svg" alt="Adress">
+          <span>Г. Москва М. Котельники Новорязанская 1 Б</span>
+        </div>
+        <div class="call-box">
+          <div class="phone">
+            <a href="tel:84993509673">
+              <img src="img/phone.svg" alt="Phone">
+              <b>8 (499) 350-96-73</b>
+            </a>
+          </div>
+          <button class="call-btn" id="recall-btn">Заказать звонок</button>
+        </div>
+      </div>
+
+      <div class="header-menu" id="header-menu-fixed">
+        <menu>
+          <ul>
+            <a href="#catalog-section">Каталог<img class="menu-dropdown" src="img/dropdown-arrow.svg"></a>
+            <a href="#model-comparison-section">Сравнение товаров</a>
+            <a href="#strollers-set-section">Комплектация</a>
+            <a href="#about-us-section">О нас</a>
+            <a href="#fast-delivery-section">Доставка</a>
+            <a href="#contacts-section">Контакты</a>
+          </ul>
+        </menu>
+        <div class="social-cart">
+          <div class="social">
+            <a href="https://api.whatsapp.com/send?phone=79993334910" class="social-box whatsapp"><img
+                src="img/whatsapp.svg" alt="Whatsapp"></a>
+            <a href="https://vk.com/uwishru" class="social-box"><img src="img/vk.svg" alt="VK"></a>
+            <a href="https://www.instagram.com/uwish.ru/" class="social-box"><img src="img/inst.svg"
+                alt="Instagramm"></a>
+            <a href="https://www.youtube.com/channel/UCwXTZ2k9L--aSoBeeNiDrtA" class="social-box play"><img
+                src="img/play.svg" alt="Play"></a>
+          </div>
+          <div class="cart" id="empty-cart-btn">
+            <img src="img/cart.svg" alt="Cart">
+            <div class="cart-items">(8)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-mobile">
+        <div class="header-info-mobile">
+          <div class="burger"><i class="fas fa-bars"></i></div>
+          <div class="logo"><img src="img/logo.png" alt="Logo"></div>
+          <div class="cart" id="empty-cart-mobile-btn"><img src="img/cart.svg" alt="Cart"></div>
+        </div>
+        <div class="header-menu-mobile">
+          <a href="#catalog-section">Каталог</a>
+          <a href="#about-us-section">О нас</a>
+          <a href="#fast-delivery-section">Доставка</a>
+          <a href="#contacts-section">Контакты</a>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+    <section class="container main-slider" id="main-slider">
+      <div class="slide">
+        <div class="left">
+          <b>Лучшая цена!</b>
+          <p>Доставка день в день</p>
+          <a href="#catalog-section" class="goto-catalog">Перейти в каталог</a>
+        </div>
+        <div class="right">
+          <img src="img/main-slider-img.png">
+          <div class="floating-container">
+            <div class="floating-box">
+              <div class="text">9 280<div class="rub">₽</div>
+              </div>
+            </div>
+            <div class="floating-subbox">
+              <div class="text">хит</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="left">
+          <b>Лучшая цена1</b>
+          <p>Доставка день в день</p>
+          <a href="#catalog-section" class="goto-catalog">Перейти в каталог</a>
+        </div>
+        <div class="right">
+          <img src="img/main-slider-img.png">
+          <div class="floating-container">
+            <div class="floating-box">
+              <div class="text">9 280<div class="rub">₽</div>
+              </div>
+            </div>
+            <div class="floating-subbox">
+              <div class="text">хит</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="left">
+          <b>Лучшая цена2</b>
+          <p>Доставка день в день</p>
+          <a href="#catalog-section" class="goto-catalog">Перейти в каталог</a>
+        </div>
+        <div class="right">
+          <img src="img/main-slider-img.png">
+          <div class="floating-container">
+            <div class="floating-box">
+              <div class="text">9 280<div class="rub">₽</div>
+              </div>
+            </div>
+            <div class="floating-subbox">
+              <div class="text">хит</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="container cunsumers-receive">
+      <div class="cunsumers-receive-header">Что получают наши покупатели</div>
+      <div class="cunsumers-receive-container">
+        <div class="cunsumers-receive-box">
+          <div class="number">1</div>
+          <div class="textbox">
+            <div class="text">Доступность</div>
+            <div class="subtext">Мы явлеяемся производителем</div>
+          </div>
+        </div>
+        <div class="cunsumers-receive-box">
+          <div class="number">2</div>
+          <div class="textbox">
+            <div class="text">Практичность</div>
+            <div class="subtext">Мы явлеяемся производителем</div>
+          </div>
+        </div>
+        <div class="cunsumers-receive-box">
+          <div class="number">3</div>
+          <div class="textbox">
+            <div class="text">Гарантия 6 месяцев</div>
+            <div class="subtext">Мы явлеяемся производителем</div>
+          </div>
+        </div>
+        <div class="cunsumers-receive-box">
+          <div class="number">4</div>
+          <div class="textbox">
+            <div class="text">Оплата при получении</div>
+            <div class="subtext">Мы явлеяемся производителем</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container catalog scrollspy" id="catalog-section">
+      <div class="catalog-header">Каталог</div>
+      <div class="catalog-menu">
+        <button class="active">Барс Winter</button>
+        <button>Uwish Aimi</button>
+        <button>Aimi</button>
+        <button>Wondoo</button>
+        <button>Барс с <small>автокреслом</small></button>
+        <button>Bair</button>
+      </div>
+      <img class="catalog-mobile-arrow" src="img/catalog-mobile-arrow.svg">
+      <div class="catalog-container">
+        <div class="left-slider" id="catalog-left-slider">
+          <div class="slide">
+            <img src="img/catalog-prewiew-img.png">
+          </div>
+          <div class="slide">
+            <img src="img/catalog-img.png">
+          </div>
+          <div class="slide">
+            <img src="img/catalog-prewiew-img.png">
+          </div>
+          <div class="slide">
+            <img src="img/catalog-prewiew-img.png">
+          </div>
+          <div class="slide">
+            <img src="img/catalog-img.png">
+          </div>
+          <div class="slide">
+            <img src="img/catalog-prewiew-img.png">
+          </div>
+        </div>
+        <div class="main-box">
+          <div class="main-box-info">
+            <div class="main-box-info-title">
+              <b>Коляска трасформер Барс</b>
+              <p>Артикул 3102</p>
+            </div>
+            <div class="main-box-info-image">
+              <div class="main-box-info-image-box">
+                <div id="slider-image">
+                  <div class="slide">
+                    <img src="img/catalog-prewiew-img.png">
+                  </div>
+                  <div class="slide">
+                    <img src="img/catalog-img.png">
+                  </div>
+                  <div class="slide">
+                    <img src="img/catalog-prewiew-img.png">
+                  </div>
+                  <div class="slide">
+                    <img src="img/catalog-prewiew-img.png">
+                  </div>
+                  <div class="slide">
+                    <img src="img/catalog-img.png">
+                  </div>
+                  <div class="slide">
+                    <img src="img/catalog-prewiew-img.png">
+                  </div>
+                </div>
+                <div class="new-product-label">
+                  <img src="img/catalog-new.svg">
+                  <div class="label">Новинка</div>
+                </div>
+              </div>
+              <div class="main-box-info-image-specs">
+                <div class="box">
+                  <div class="specification">Размер колес</div>
+                  <div class="value">30 см</div>
+                </div>
+                <div class="box">
+                  <div class="specification">Вес</div>
+                  <div class="value">32.1 кг</div>
+                </div>
+                <div class="box">
+                  <div class="specification">Реверсивный блок</div>
+                  <div class="value">3102</div>
+                </div>
+                <div class="box">
+                  <div class="specification">Основной материал</div>
+                  <div class="value">Кожа</div>
+                </div>
+                <div class="box">
+                  <div class="specification">Цвет</div>
+                  <div class="value">Brown</div>
+                </div>
+              </div>
+            </div>
+            <div class="main-box-info-warranty">
+              <div class="warranty"><b>12 месяцев</b><br>Бесплатное гарантийное обслуживание (бесплатная замена колес,
+                подшипников в случае поломки, даже по вине перевозчика, в
+                течение 20 минут в нашем сервисном центре.</div>
+              <div class="review">
+                <div class="play-btn"><img src="images/play.svg"></div>
+                <div class="text">Смотреть видео—обзор</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="main-box-equipment">
+            <div class="color-pick">
+              <div class="title">Выбрать цвет</div>
+              <div class="items">
+                <div class="item">
+                  <img src="img/color-pick-2.png">
+                </div>
+                <div class="item">
+                  <img src="img/color-pick-2.png">
+                </div>
+                <div class="item">
+                  <img src="img/color-pick-2.png">
+                </div>
+                <div class="item">
+                  <img src="img/color-pick-2.png">
+                </div>
+                <div class="item active">
+                  <img src="img/color-pick-1.png">
+                </div>
+                <div class="item">
+                  <img src="img/color-pick-2.png">
+                </div>
+              </div>
+            </div>
+            <div class="recieve-item">
+              <div class="title">Как получить коляску?</div>
+              <div class="options">
+                <div class="option">Доставим в день покупки</div>
+                <div class="option">Забрать можно из магазина М. Котельники</div>
+              </div>
+            </div>
+            <div class="additive-items">
+              <div class="title">В комплекте</div>
+              <div class="items">
+                <div class="item">Подстаканник</div>
+                <div class="item">Москитная сетка</div>
+                <div class="item">Регулируемый бампер</div>
+                <div class="item">Дождевик</div>
+                <div class="item">Сумка для переноски</div>
+                <div class="item">Ремень для переноски</div>
+              </div>
+            </div>
+            <div class="checkout">
+              <div class="price">
+                <div class="discount"><span>9 280</span> руб</div>
+                <div class="real-price">19 280 руб</div>
+              </div>
+              <div class="add-to-cart">
+                <div class="add-to-cart-btn" id="cart-items-btn">В корзину</div>
+                <div class="oneclick-buy" id="oneclick-buy">Купить в один клик</div>
+              </div>
+            </div>
+
+            <div class="specs-mobile">
+              <div class="title">Характеристики</div>
+              <div class="items">
+                <div class="items-wrapper">
+                  <p>Размер колес</p>
+                  <p>30 cм</p>
+                </div>
+                <div class="items-wrapper">
+                  <p>Основной материал</p>
+                  <p>Кожа</p>
+                </div>
+                <div class="items-wrapper">
+                  <p>Вес</p>
+                  <p>32.1 кг</p>
+                </div>
+                <div class="items-wrapper">
+                  <p>Реверсивный блок</p>
+                  <p>3102</p>
+                </div>
+                <div class="items-wrapper">
+                  <p>Цвет</p>
+                  <p>Brown</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="free-warranty-mobile">
+              <div class="title">Бесплатное гарантийное обслуживание</div>
+              <div class="text">(бесплатная замена колес, подшипников в случае поломки, даже по вине перевозчика, в
+                течение 20 минут в нашем сервисном центре.</div>
+            </div>
+
+            <div class="mobile-review">
+              <div class="play-btn"><img src="images/play.svg"></div>
+              <div class="text">Смотреть видео—обзор</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container models-specs scrollspy" id="model-comparison-section">
+      <div class="models-specs-header">Характеристика всех моделей</div>
+
+      <table>
+        <tr>
+          <td></td>
+          <td>Барс Winter</td>
+          <td>Uwish Aimi</td>
+          <td>Aimi</td>
+          <td>Wondoo</td>
+          <td>Барс<br>с автокреслом</td>
+          <td>Bair</td>
+        </tr>
+        <tr>
+          <td>Амортизация</td>
+          <td><i class="fas fa-check"></i></td>
+          <td><i class="fas fa-check"></i></td>
+          <td><i class="fas fa-check"></i></td>
+          <td><i class="fas fa-check"></i></td>
+          <td><i class="fas fa-check"></i></td>
+          <td class="no">нет</td>
+        </tr>
+        <tr>
+          <td>Увеличенная люлька</td>
+          <td></td>
+          <td><i class="fas fa-check"></i></td>
+          <td class="no">нет</td>
+          <td><i class="fas fa-check"></i></td>
+          <td class="no">нет</td>
+          <td class="no">нет</td>
+        </tr>
+        <tr>
+          <td>Полная комплектация</td>
+          <td><i class="fas fa-check"></i></td>
+          <td><i class="fas fa-check"></i></td>
+          <td><i class="fas fa-check"></i></td>
+          <td><i class="fas fa-check"></i></td>
+          <td><i class="fas fa-check"></i></td>
+          <td><i class="fas fa-check"></i></td>
+        </tr>
+        <tr>
+          <td>Передние поворотные колеса</td>
+          <td class="no">нет</td>
+          <td class="no">нет</td>
+          <td class="no">нет</td>
+          <td class="no">нет</td>
+          <td class="no">нет</td>
+          <td class="no">нет</td>
+        </tr>
+        <tr>
+          <td>Водоотталкивающий состав</td>
+          <td class="no">нет</td>
+          <td><i class="fas fa-check"></i></td>
+          <td class="no">нет</td>
+          <td><i class="fas fa-check"></i></td>
+          <td class="no">нет</td>
+          <td class="no">нет</td>
+        </tr>
+        <tr>
+          <td>Автокресло</td>
+          <td class="no">нет</td>
+          <td class="can-be-bought">можно<br>приобрести</td>
+          <td class="can-be-bought">можно<br>приобрести</td>
+          <td class="no">нет</td>
+          <td class="in-stock">в комплекте</td>
+          <td class="no">нет</td>
+        </tr>
+      </table>
+
+      <div class="models-specs-box">
+        <div class="models-specs-box-item">
+          <div class="title">Барс Winter</div>
+          <div class="options">
+            <div class="options-item">Амортизация</div>
+            <div class="options-item">Полная комплектация</div>
+          </div>
+        </div>
+        <div class="models-specs-box-item">
+          <div class="title">Bair</div>
+          <div class="options">
+            <div class="options-item">Полная комплектация</div>
+          </div>
+        </div>
+        <div class="models-specs-box-item">
+          <div class="title">Wondoo</div>
+          <div class="options">
+            <div class="options-item">Амортизация</div>
+            <div class="options-item">Увеличенная люлька</div>
+            <div class="options-item">Полная комплектация</div>
+            <div class="options-item">Водоотталкивающий состав</div>
+          </div>
+        </div>
+        <div class="models-specs-box-item">
+          <div class="title">Uwish Aimi</div>
+          <div class="options">
+            <div class="options-item">Амортизация</div>
+            <div class="options-item">Увеличенная люлька</div>
+            <div class="options-item">Полная комплектация</div>
+            <div class="options-item">Водоотталкивающий состав</div>
+            <div class="options-item">Автокресло<br><span>можно приобрести</span></div>
+          </div>
+        </div>
+        <div class="models-specs-box-item">
+          <div class="title">Барс с <small>автокреслом</small></div>
+          <div class="options">
+            <div class="options-item">Амортизация</div>
+            <div class="options-item">Полная комплектация</div>
+            <div class="options-item">Автокресло<br><span>в комплекте</span></div>
+          </div>
+        </div>
+        <div class="models-specs-box-item">
+          <div class="title">Aimi</div>
+          <div class="options">
+            <div class="options-item">Амортизация</div>
+            <div class="options-item">Полная комплектация</div>
+            <div class="options-item">Автокресло<br><span>можно приобрести</span></div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="strollers-set scrollspy" id="strollers-set-section">
+      <div class="container">
+        <div class="strollers-set-header">Комплектация колясок</div>
+        <div class="strollers-set-menu">
+          <button>Барс Winter</button>
+          <button>Uwish Aimi</button>
+          <button>Aimi</button>
+          <button>Wondoo</button>
+          <button>Барс с <small>автокреслом</small></button>
+          <button>Bair</button>
+        </div>
+        <div class="strollers-set-box">
+          <div class="title-mobile">Барс Winter</div>
+          <div class="left-box">
+            <div class="slider-box">
+              <div class="images" id="strollers-set-slider">
+                <img src="img/catalog-img.png">
+                <img src="img/catalog-colorpick-1.png">
+                <img src="img/catalog-colorpick-2.png">
+                <img src="img/catalog-prewiew-img.png">
+              </div>
+              <div class="floating-option">Коляска складывается</div>
+            </div>
+            <div class="order-btn" id="order-btn">Заказать эту модель</div>
+          </div>
+          <div class="right-scroll">
+            <div class="item">
+              <div class="image"><img src="img/strollers-set-2.png"></div>
+              <div class="title">Название детали</div>
+            </div>
+            <div class="item">
+              <div class="image"><img src="img/strollers-set-3.png"></div>
+              <div class="title">Название детали</div>
+            </div>
+            <div class="item">
+              <div class="image"><img src="img/strollers-set-4.png"></div>
+              <div class="title">Название детали</div>
+            </div>
+            <div class="item">
+              <div class="image"><img src="img/strollers-set-5.png"></div>
+              <div class="title">Название детали</div>
+            </div>
+            <div class="item">
+              <div class="image"><img src="img/strollers-set-1.png"></div>
+              <div class="title">Название детали</div>
+            </div>
+            <div class="item">
+              <div class="image"><img src="img/strollers-set-2.png"></div>
+              <div class="title">Название детали</div>
+            </div>
+            <div class="item">
+              <div class="image"><img src="img/strollers-set-3.png"></div>
+              <div class="title">Название детали</div>
+            </div>
+            <div class="item">
+              <div class="image"><img src="img/strollers-set-4.png"></div>
+              <div class="title">Название детали</div>
+            </div>
+            <div class="item">
+              <div class="image"><img src="img/strollers-set-5.png"></div>
+              <div class="title">Название детали</div>
+            </div>
+            <div class="item">
+              <div class="image"><img src="img/strollers-set-1.png"></div>
+              <div class="title">Название детали</div>
+            </div>
+            <div class="item">
+              <div class="image"><img src="img/strollers-set-2.png"></div>
+              <div class="title">Название детали</div>
+            </div>
+            <div class="item">
+              <div class="image"><img src="img/strollers-set-3.png"></div>
+              <div class="title">Название детали</div>
+            </div>
+            <div class="item">
+              <div class="image"><img src="img/strollers-set-4.png"></div>
+              <div class="title">Название детали</div>
+            </div>
+            <div class="item">
+              <div class="image"><img src="img/strollers-set-5.png"></div>
+              <div class="title">Название детали</div>
+            </div>
+            <div class="item">
+              <div class="image"><img src="img/strollers-set-1.png"></div>
+              <div class="title">Название детали</div>
+            </div>
+            <div class="item">
+              <div class="image"><img src="img/strollers-set-2.png"></div>
+              <div class="title">Название детали</div>
+            </div>
+            <div class="item">
+              <div class="image"><img src="img/strollers-set-3.png"></div>
+              <div class="title">Название детали</div>
+            </div>
+            <div class="item">
+              <div class="image"><img src="img/strollers-set-4.png"></div>
+              <div class="title">Название детали</div>
+            </div>
+            <div class="item">
+              <div class="image"><img src="img/strollers-set-5.png"></div>
+              <div class="title">Название детали</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="who-we-are scrollspy" id="about-us-section">
+      <div class="container">
+        <div class="who-we-are-box">
+          <div class="who-we-are-title">Мы —</div>
+          <div class="who-we-are-list-box">
+            <div class="about-company-title"><img src="img/logo-small-lite.png">О компании</div>
+            <div class="who-we-are-list-box-items">
+              <div class="item">Интернет—магазин детских колясок</div>
+              <div class="item">Занимаемся продажей детских товаров с 2016 года</div>
+              <div class="item"><b>Владельцы брендов UWISH Барс SKILLMAX</b></div>
+              <div class="item"><b>Шоу—рум в центре Москвы</b></div>
+            </div>
+            <img src="img/who-we-are-mobile.png">
+            <a href="#catalog-section" class="goto-catalog">Перейти в каталог</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container fast-delivery scrollspy" id="fast-delivery-section">
+      <div class="title"><b>Быстрая доставка</b> Колясок Uwish</div>
+      <div class="fast-delivery-img">
+        <img src="img/fast-delivery-main.png">
+        <div class="ask-question" id="ask-question">Задать вопрос <sup>?</sup></div>
+      </div>
+      <div class="fast-delivery-options">
+        <div class="fast-delivery-options-item">Доставка по Москве и области день в день</div>
+        <div class="fast-delivery-options-item">Доставка в регионы транспортными компаниями и курьерскими службами</div>
+        <div class="fast-delivery-options-item">Оплата товара при получении</div>
+      </div>
+    </section>
+
+    <section class="contacts scrollspy" id="contacts-section">
+      <div class="container">
+        <div class="title">Контакты компании Uwish</div>
+        <div class="contacts-info">
+          <div class="box">
+            <div class="contacts-info-item"><img src="img/adress.svg"> Г. Москва М. Котельники Новорязанская
+            </div>
+            <div class="contacts-info-item"><img src="img/phone.svg"> <b>8 (499) 350-96-73</b></div>
+          </div>
+          <div class="box">
+            <div class="contacts-info-item"><i class="far fa-envelope"></i> help@skill-max.ru</div>
+            <div class="contacts-info-item"><i class="far fa-clock"></i> 9:00—21:00 <span>Без выходных</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="customers-review">
+      <div class="container">
+        <div class="title">Отзывы покупателей</div>
+        <div class="review-box">
+          <div class="review">
+            <div class="customer">
+              <div class="img"><img src="img/customer-image.png"></div>
+              <div class="info">
+                <div class="rating">
+                  <i class="fas fa-star active"></i>
+                  <i class="fas fa-star active"></i>
+                  <i class="fas fa-star active"></i>
+                  <i class="fas fa-star active"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <div class="name">Виктория Голованова</div>
+                <div class="date">20.11.2020—18:30</div>
+              </div>
+            </div>
+            <img src="img/review-screenshot.png">
+          </div>
+          <div class="gallery">
+            <div class="gallery-title">Коляска трасформер Барс 3102</div>
+            <div class="main-video">
+              <iframe width="100%" height="340" src="https://www.youtube.com/embed/ZOx5ov9vVi4" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+            <div class="bottom-slider customers-review-bottom-slider">
+              <div class="slide"><img src="img/review-bottom-slide.png"></div>
+              <div class="slide"><img src="img/review-bottom-slide.png"></div>
+              <div class="slide"><img src="img/review-bottom-slide.png"></div>
+              <div class="slide"><img src="img/review-bottom-slide.png"></div>
+              <div class="slide"><img src="img/review-bottom-slide.png"></div>
+              <div class="slide"><img src="img/review-bottom-slide.png"></div>
+            </div>
+          </div>
+        </div>
+        <div class="review-box">
+          <div class="review">
+            <div class="customer">
+              <div class="img"><img src="img/customer-image.png"></div>
+              <div class="info">
+                <div class="rating">
+                  <i class="fas fa-star active"></i>
+                  <i class="fas fa-star active"></i>
+                  <i class="fas fa-star active"></i>
+                  <i class="fas fa-star active"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <div class="name">Виктория Голованова</div>
+                <div class="date">20.11.2020—18:30</div>
+              </div>
+            </div>
+            <img src="img/review-screenshot.png">
+          </div>
+          <div class="gallery">
+            <div class="gallery-title">Коляска трасформер Барс 3102</div>
+            <div class="main-video">
+              <iframe width="100%" height="340" src="https://www.youtube.com/embed/ZOx5ov9vVi4" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+            <div class="bottom-slider customers-review-bottom-slider">
+              <div class="slide"><img src="img/review-bottom-slide.png"></div>
+              <div class="slide"><img src="img/review-bottom-slide.png"></div>
+              <div class="slide"><img src="img/review-bottom-slide.png"></div>
+              <div class="slide"><img src="img/review-bottom-slide.png"></div>
+              <div class="slide"><img src="img/review-bottom-slide.png"></div>
+              <div class="slide"><img src="img/review-bottom-slide.png"></div>
+            </div>
+          </div>
+        </div>
+        <div class="read-all-reviews">Читать все отзывы</div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+
+    <div class="container footer-wrapper">
+      <div class="footer-main-menu">
+        <div class="about-company">
+          <div class="title">О компании</div>
+          <ul>
+            <li><a href="#">Контакты</a></li>
+            <li><a href="#">Условия доставки</a></li>
+            <li><a href="#">Комплектация</a></li>
+            <li><a href="#">Сравнение товаров</a></li>
+            <li><a href="#">Доставка</a></li>
+            <li><a href="#">Отзывы</a></li>
+            <li><a href="#">Политика конфидициальности</a></li>
+          </ul>
+        </div>
+        <div class="our-products">
+          <div class="title">Наши товары</div>
+          <ul>
+            <li><a href="#">Барс Winter</a></li>
+            <li><a href="#">Uwish Aimi</a></li>
+            <li><a href="#">Aimi</a></li>
+            <li><a href="#">Wondoo</a></li>
+            <li><a href="#">Барс с автокреслом</a></li>
+            <li><a href="#">Bair</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-social">
+        <div class="title">Социальные сети</div>
+        <div class="footer-social-box">
+          <a href="https://vk.com/uwishru" class="item"><i class="fab fa-vk"></i></a>
+          <a href="https://www.instagram.com/uwish.ru/" class="item inst"><i class="fab fa-instagram"></i></a>
+          <a href="https://api.whatsapp.com/send?phone=79993334910" class="item whatsapp"><i
+              class="fab fa-whatsapp"></i></a>
+          <a href="https://www.youtube.com/channel/UCwXTZ2k9L--aSoBeeNiDrtA" class="item youtube"><i
+              class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="logo"><img src="img/logo-small.svg"></div>
+      <a href="#main-slider" class="scrolltop-mobile">В начало</a>
+    </div>
+
+  </footer>
+
+</body>
+
+<script src="js/libraries/jquery-3.4.1.min.js"></script>
+<script src="js/libraries/slick.min.js"></script>
+<script src="js/app.min.js"></script>
+
+</html>
